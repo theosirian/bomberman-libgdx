@@ -72,7 +72,7 @@ public class ExplosionSystem extends IteratingSystem {
 	}
 
 	private void explodeCenter(int x, int y, int range) {
-		getEngine().addEntity(new FireEntity(x, y, false));
+		getEngine().addEntity(new FireEntity(x, y, true));
 		explodeLine(x, y + 16, range, UP, VERTICAL);
 		explodeLine(x, y - 16, range, DOWN, VERTICAL);
 		explodeLine(x - 16, y, range, LEFT, HORIZONTAL);
