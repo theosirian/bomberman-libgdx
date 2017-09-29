@@ -10,14 +10,14 @@ import com.theosirian.secomp.util.Mappers;
 
 public class BombSystem extends IteratingSystem {
 	public BombSystem() {
-		super(Family.all(PositionComponent.class, InputComponent.class).get());
+		super(Family.all(PositionComponent.class,
+				InputComponent.class).get());
 	}
 
 	@Override
 	protected void processEntity(Entity entity, float deltaTime) {
 		PositionComponent position = Mappers.positionMapper.get(entity);
-		if (Mappers.inputMapper.get(entity).bomb) {
+		if (Mappers.inputMapper.get(entity).bomb)
 			getEngine().addEntity(new BombEntity(position.x, position.y));
-		}
 	}
 }

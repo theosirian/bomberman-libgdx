@@ -10,6 +10,10 @@ public class Textures {
 	public static TextureRegion[] playerOneRegions;
 	public static Animation<TextureRegion> playerOneAnimation;
 
+	public static Texture playerTwoTexture;
+	public static TextureRegion[] playerTwoRegions;
+	public static Animation<TextureRegion> playerTwoAnimation;
+
 	public static Texture obstacleTexture;
 	public static TextureRegion obstacleRegion;
 	public static Animation<TextureRegion> obstacleAnimation;

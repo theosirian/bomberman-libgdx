@@ -21,7 +21,7 @@ public class Game extends ApplicationAdapter implements InputProcessor {
 	private SpriteBatch batch;
 	private ShapeRenderer shape;
 	private Engine world, render;
-	private PlayerEntity player;
+	private PlayerEntity playerOne, playerTwo;
 	private OrthographicCamera camera;
 	private FitViewport fitViewport;
 	private MapLoader mapLoader;
@@ -36,6 +36,14 @@ public class Game extends ApplicationAdapter implements InputProcessor {
 					new TextureRegion(Textures.playerOneTexture, i * 16, 0, 16, 16);
 		Textures.playerOneAnimation =
 				new Animation<TextureRegion>(0.4f, Textures.playerOneRegions);
+
+		Textures.playerTwoTexture = new Texture("player.two.png");
+		Textures.playerTwoRegions = new TextureRegion[2];
+		for (int i = 0; i < 2; i++)
+			Textures.playerTwoRegions[i] =
+					new TextureRegion(Textures.playerTwoTexture, i * 16, 0, 16, 16);
+		Textures.playerTwoAnimation =
+				new Animation<TextureRegion>(0.4f, Textures.playerTwoRegions);
 
 		Textures.obstacleTexture = new Texture("obstacle.png");
 		Textures.obstacleRegion =
@@ -67,6 +75,8 @@ public class Game extends ApplicationAdapter implements InputProcessor {
 				new TextureRegion(Textures.bombTexture, 8 * 16, 0, 16, 16);
 	}
 
+	private boolean restart = false;
+
 	private void initializeWorld() {
 		world = new Engine();
 		world.addSystem(new MovementSystem());
@@ -82,17 +92,37 @@ public class Game extends ApplicationAdapter implements InputProcessor {
 			@Override
 			public void entityRemoved(Entity entity) {
 				render.removeEntity(entity);
+				if (!(world.getEntities().contains(playerOne, true) &&
+						world.getEntities().contains(playerTwo, true))) {
+					restart = true;
+				}
 			}
 		});
 		render = new Engine();
 		render.addSystem(new RenderSystem(batch));
 
-		player = new PlayerEntity(16, 16, Textures.playerOneAnimation);
-		world.addEntity(player);
+		playerOne = new PlayerEntity(16, 16, Textures.playerOneAnimation,
+				new PlayerEntity.InputConfiguration(
+						Input.Keys.UP,
+						Input.Keys.DOWN,
+						Input.Keys.LEFT,
+						Input.Keys.RIGHT,
+						Input.Keys.CONTROL_RIGHT
+				));
+		playerTwo = new PlayerEntity(16 * 15, 16 * 15, Textures.playerTwoAnimation,
+				new PlayerEntity.InputConfiguration(
+						Input.Keys.W,
+						Input.Keys.S,
+						Input.Keys.A,
+						Input.Keys.D,
+						Input.Keys.SPACE
+				));
+		world.addEntity(playerOne);
+		world.addEntity(playerTwo);
 
 		mapLoader.createEntities(world);
 
-		Gdx.input.setInputProcessor(new InputMultiplexer(this, player));
+		Gdx.input.setInputProcessor(new InputMultiplexer(this, playerOne, playerTwo));
 
 		camera = new OrthographicCamera();
 		fitViewport = new FitViewport(17 * 16, 17 * 16, camera);
@@ -120,6 +150,12 @@ public class Game extends ApplicationAdapter implements InputProcessor {
 	public void render() {
 		Gdx.gl.glClearColor(0, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+		if (restart) {
+			initializeWorld();
+			restart = false;
+		}
+
 		world.update(Gdx.graphics.getDeltaTime());
 
 		camera.update();
