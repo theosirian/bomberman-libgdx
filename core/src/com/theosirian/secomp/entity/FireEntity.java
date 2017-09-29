@@ -3,21 +3,30 @@ package com.theosirian.secomp.entity;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.theosirian.secomp.components.DestroyComponent;
 import com.theosirian.secomp.components.PositionComponent;
 import com.theosirian.secomp.components.RenderComponent;
 import com.theosirian.secomp.systems.ExplosionSystem;
 import com.theosirian.secomp.util.Textures;
 
 public class FireEntity extends Entity {
-	public FireEntity(int px, int py) {
+	public FireEntity(int px, int py, boolean center) {
 		PositionComponent position = new PositionComponent();
 		position.x = px;
 		position.y = py;
 		this.add(position);
+		DestroyComponent destroy = new DestroyComponent();
+		destroy.timer = 0.5f;
+		this.add(destroy);
+		if (center) {
+			RenderComponent render = new RenderComponent();
+			render.animation = new Animation<TextureRegion>(1f, Textures.bombCenter);
+			this.add(render);
+		}
 	}
 
 	public FireEntity(int px, int py, ExplosionSystem.Tip tip) {
-		this(px, py);
+		this(px, py, false);
 		RenderComponent render = new RenderComponent();
 		switch (tip) {
 			case UP:
@@ -37,7 +46,7 @@ public class FireEntity extends Entity {
 	}
 
 	public FireEntity(int px, int py, ExplosionSystem.Extension extension) {
-		this(px, py);
+		this(px, py, false);
 		RenderComponent render = new RenderComponent();
 		switch (extension) {
 			case HORIZONTAL:

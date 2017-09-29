@@ -13,8 +13,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.theosirian.secomp.entity.PlayerEntity;
-import com.theosirian.secomp.systems.MovementSystem;
-import com.theosirian.secomp.systems.RenderSystem;
+import com.theosirian.secomp.systems.*;
 import com.theosirian.secomp.util.MapLoader;
 import com.theosirian.secomp.util.Textures;
 
@@ -71,6 +70,9 @@ public class Game extends ApplicationAdapter implements InputProcessor {
 	private void initializeWorld() {
 		world = new Engine();
 		world.addSystem(new MovementSystem());
+		world.addSystem(new BombSystem());
+		world.addSystem(new ExplosionSystem());
+		world.addSystem(new DestructionSystem());
 		world.addEntityListener(new EntityListener() {
 			@Override
 			public void entityAdded(Entity entity) {

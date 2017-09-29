@@ -54,6 +54,10 @@ public class PlayerEntity extends Entity implements InputProcessor {
 				input.right = true;
 				break;
 
+			case Input.Keys.SPACE:
+				input.bomb = true;
+				break;
+
 			default:
 				return false;
 		}
@@ -77,6 +81,10 @@ public class PlayerEntity extends Entity implements InputProcessor {
 
 			case Input.Keys.RIGHT:
 				input.right = false;
+				break;
+
+			case Input.Keys.SPACE:
+				input.bomb = false;
 				break;
 
 			default:

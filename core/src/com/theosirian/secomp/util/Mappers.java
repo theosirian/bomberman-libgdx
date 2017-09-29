@@ -23,4 +23,8 @@ public class Mappers {
 	public static final ComponentMapper<ExplosionComponent>
 			explosionMapper =
 			ComponentMapper.getFor(ExplosionComponent.class);
+
+	public static final ComponentMapper<DestroyComponent>
+			destroyMapper =
+			ComponentMapper.getFor(DestroyComponent.class);
 }

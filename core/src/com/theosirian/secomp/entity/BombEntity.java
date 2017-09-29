@@ -1,10 +1,7 @@
 package com.theosirian.secomp.entity;
 
 import com.badlogic.ashley.core.Entity;
-import com.theosirian.secomp.components.HitboxComponent;
-import com.theosirian.secomp.components.PositionComponent;
-import com.theosirian.secomp.components.RenderComponent;
-import com.theosirian.secomp.components.StaticColliderComponent;
+import com.theosirian.secomp.components.*;
 import com.theosirian.secomp.util.Textures;
 
 public class BombEntity extends Entity {
@@ -27,5 +24,10 @@ public class BombEntity extends Entity {
 		RenderComponent render = new RenderComponent();
 		render.animation = Textures.bombAnimation;
 		this.add(render);
+
+		ExplosionComponent explosion = new ExplosionComponent();
+		explosion.range = 2;
+		explosion.timer = 2f;
+		this.add(explosion);
 	}
 }

@@ -59,6 +59,7 @@ public class ExplosionSystem extends IteratingSystem {
 		if (explosion.timer <= 0f) {
 			PositionComponent position = Mappers.positionMapper.get(entity);
 			explodeCenter(position.x, position.y, explosion.range);
+			getEngine().removeEntity(entity);
 		}
 	}
 
@@ -71,10 +72,11 @@ public class ExplosionSystem extends IteratingSystem {
 	}
 
 	private void explodeCenter(int x, int y, int range) {
-		explodeLine(x, y, range, UP, VERTICAL);
-		explodeLine(x, y, range, DOWN, VERTICAL);
-		explodeLine(x, y, range, LEFT, HORIZONTAL);
-		explodeLine(x, y, range, RIGHT, HORIZONTAL);
+		getEngine().addEntity(new FireEntity(x, y, false));
+		explodeLine(x, y + 16, range, UP, VERTICAL);
+		explodeLine(x, y - 16, range, DOWN, VERTICAL);
+		explodeLine(x - 16, y, range, LEFT, HORIZONTAL);
+		explodeLine(x + 16, y, range, RIGHT, HORIZONTAL);
 	}
 
 	private void explodeLine(final int px, final int py, int range, Tip tip, Extension extension) {
@@ -101,7 +103,8 @@ public class ExplosionSystem extends IteratingSystem {
 					break;
 				case DOWN:
 					if (Arrays.stream(collisionEntities.toArray()).noneMatch((c) ->
-							Mappers.positionMapper.get(c).x == px && Mappers.positionMapper.get(c).y == py - 16))
+							Mappers.positionMapper.get(c).x == px &&
+									Mappers.positionMapper.get(c).y == py - 16))
 						getEngine().addEntity(new FireEntity(px, py, tip));
 					else if (range == 0)
 						getEngine().addEntity(new FireEntity(px, py, tip));
@@ -112,7 +115,8 @@ public class ExplosionSystem extends IteratingSystem {
 					break;
 				case LEFT:
 					if (Arrays.stream(collisionEntities.toArray()).noneMatch((c) ->
-							Mappers.positionMapper.get(c).x == px - 16 && Mappers.positionMapper.get(c).y == py))
+							Mappers.positionMapper.get(c).x == px - 16 &&
+									Mappers.positionMapper.get(c).y == py))
 						getEngine().addEntity(new FireEntity(px, py, tip));
 					else if (range == 0)
 						getEngine().addEntity(new FireEntity(px, py, tip));
@@ -123,7 +127,8 @@ public class ExplosionSystem extends IteratingSystem {
 					break;
 				case RIGHT:
 					if (Arrays.stream(collisionEntities.toArray()).noneMatch((c) ->
-							Mappers.positionMapper.get(c).x == px + 16 && Mappers.positionMapper.get(c).y == py))
+							Mappers.positionMapper.get(c).x == px + 16 &&
+									Mappers.positionMapper.get(c).y == py))
 						getEngine().addEntity(new FireEntity(px, py, tip));
 					else if (range == 0)
 						getEngine().addEntity(new FireEntity(px, py, tip));
