@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="left-up" width="17" height="17" tilewidth="16" tileheight="16" nextobjectid="69">
+ <tileset firstgid="1" name="Map" tilewidth="16" tileheight="16" tilecount="21" columns="7">
+  <image source="map.tiles.png" width="112" height="48"/>
+ </tileset>
+ <layer name="Floor" width="17" height="17">
+  <data encoding="base64" compression="zlib">
+   eJwTYWBgEBnFo3gUj+IBwgAu0RaV
+  </data>
+ </layer>
+ <layer name="Layout" width="17" height="17">
+  <data encoding="base64" compression="zlib">
+   eJxjZGBg4KUAMwMxNwNlgBvJDDYyaWQzRt0x6o5Rd9DHHfwMlJUfgkAMABPzBBs=
+  </data>
+ </layer>
+ <objectgroup name="Collision" visible="0">
+  <object id="9" x="0" y="0" width="256" height="16"/>
+  <object id="10" x="256" y="0" width="16" height="272"/>
+  <object id="11" x="0" y="256" width="256" height="16"/>
+  <object id="12" x="0" y="16" width="16" height="240"/>
+  <object id="14" x="32" y="32" width="16" height="16"/>
+  <object id="15" x="64" y="32" width="16" height="16"/>
+  <object id="16" x="96" y="32" width="16" height="16"/>
+  <object id="17" x="128" y="32" width="16" height="16"/>
+  <object id="19" x="160" y="32" width="16" height="16"/>
+  <object id="20" x="192" y="32" width="16" height="16"/>
+  <object id="21" x="224" y="32" width="16" height="16"/>
+  <object id="22" x="128" y="64" width="16" height="16"/>
+  <object id="23" x="96" y="64" width="16" height="16"/>
+  <object id="24" x="224" y="64" width="16" height="16"/>
+  <object id="25" x="160" y="64" width="16" height="16"/>
+  <object id="26" x="64" y="64" width="16" height="16"/>
+  <object id="27" x="32" y="64" width="16" height="16"/>
+  <object id="28" x="192" y="64" width="16" height="16"/>
+  <object id="29" x="128" y="96" width="16" height="16"/>
+  <object id="30" x="96" y="96" width="16" height="16"/>
+  <object id="31" x="224" y="96" width="16" height="16"/>
+  <object id="32" x="160" y="96" width="16" height="16"/>
+  <object id="33" x="64" y="96" width="16" height="16"/>
+  <object id="34" x="32" y="96" width="16" height="16"/>
+  <object id="35" x="192" y="96" width="16" height="16"/>
+  <object id="36" x="128" y="128" width="16" height="16"/>
+  <object id="37" x="96" y="128" width="16" height="16"/>
+  <object id="38" x="224" y="128" width="16" height="16"/>
+  <object id="39" x="160" y="128" width="16" height="16"/>
+  <object id="40" x="64" y="128" width="16" height="16"/>
+  <object id="41" x="32" y="128" width="16" height="16"/>
+  <object id="42" x="192" y="128" width="16" height="16"/>
+  <object id="43" x="128" y="160" width="16" height="16"/>
+  <object id="44" x="96" y="160" width="16" height="16"/>
+  <object id="45" x="224" y="160" width="16" height="16"/>
+  <object id="46" x="160" y="160" width="16" height="16"/>
+  <object id="47" x="64" y="160" width="16" height="16"/>
+  <object id="48" x="32" y="160" width="16" height="16"/>
+  <object id="49" x="192" y="160" width="16" height="16"/>
+  <object id="50" x="128" y="192" width="16" height="16"/>
+  <object id="51" x="96" y="192" width="16" height="16"/>
+  <object id="52" x="224" y="192" width="16" height="16"/>
+  <object id="53" x="160" y="192" width="16" height="16"/>
+  <object id="54" x="64" y="192" width="16" height="16"/>
+  <object id="55" x="32" y="192" width="16" height="16"/>
+  <object id="56" x="192" y="192" width="16" height="16"/>
+  <object id="57" x="128" y="224" width="16" height="16"/>
+  <object id="58" x="96" y="224" width="16" height="16"/>
+  <object id="59" x="224" y="224" width="16" height="16"/>
+  <object id="60" x="160" y="224" width="16" height="16"/>
+  <object id="61" x="64" y="224" width="16" height="16"/>
+  <object id="62" x="32" y="224" width="16" height="16"/>
+  <object id="63" x="192" y="224" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup name="Obstacles">
+  <object id="64" type="required" x="16" y="48" width="32" height="176"/>
+  <object id="65" type="required" x="48" y="224" width="176" height="32"/>
+  <object id="66" type="required" x="224" y="48" width="32" height="176"/>
+  <object id="67" type="required" x="48" y="16" width="176" height="32"/>
+  <object id="68" type="random" x="48" y="48" width="176" height="176"/>
+ </objectgroup>
+</map>
