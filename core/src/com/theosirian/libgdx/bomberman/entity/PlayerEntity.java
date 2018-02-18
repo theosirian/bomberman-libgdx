@@ -1,10 +1,10 @@
-package com.theosirian.secomp.entity;
+package com.theosirian.libgdx.bomberman.entity;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.theosirian.secomp.components.*;
+import com.theosirian.libgdx.bomberman.components.*;
 
 public class PlayerEntity extends Entity implements InputProcessor {
 

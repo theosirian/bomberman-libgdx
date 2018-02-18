@@ -1,4 +1,4 @@
-package com.theosirian.secomp.components;
+package com.theosirian.libgdx.bomberman.components;
 
 import com.badlogic.ashley.core.Component;
 import com.badlogic.gdx.graphics.g2d.Animation;

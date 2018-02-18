@@ -1,8 +1,9 @@
-package com.theosirian.secomp.entity;
+package com.theosirian.libgdx.bomberman.entity;
 
 import com.badlogic.ashley.core.Entity;
-import com.theosirian.secomp.components.*;
-import com.theosirian.secomp.util.Textures;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.theosirian.libgdx.bomberman.components.*;
+import com.theosirian.libgdx.bomberman.util.Textures;
 
 public class BombEntity extends Entity {
 
@@ -22,11 +23,11 @@ public class BombEntity extends Entity {
 		this.add(new StaticColliderComponent());
 
 		RenderComponent render = new RenderComponent();
-		render.animation = Textures.bombAnimation;
+		render.animation = new Animation<>(0.2f, Textures.bombRegions);
 		this.add(render);
 
 		ExplosionComponent explosion = new ExplosionComponent();
-		explosion.range = 2;
+		explosion.range = 1;
 		explosion.timer = 2f;
 		this.add(explosion);
 	}

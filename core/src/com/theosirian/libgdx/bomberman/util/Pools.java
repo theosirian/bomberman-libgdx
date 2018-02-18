@@ -1,4 +1,4 @@
-package com.theosirian.secomp.util;
+package com.theosirian.libgdx.bomberman.util;
 
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;

@@ -1,4 +1,4 @@
-package com.theosirian.secomp.systems;
+package com.theosirian.libgdx.bomberman.systems;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
@@ -6,12 +6,12 @@ import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.math.Rectangle;
-import com.theosirian.secomp.components.HitboxComponent;
-import com.theosirian.secomp.components.InputComponent;
-import com.theosirian.secomp.components.PositionComponent;
-import com.theosirian.secomp.components.StaticColliderComponent;
-import com.theosirian.secomp.util.Mappers;
-import com.theosirian.secomp.util.Pools;
+import com.theosirian.libgdx.bomberman.components.HitboxComponent;
+import com.theosirian.libgdx.bomberman.components.InputComponent;
+import com.theosirian.libgdx.bomberman.components.PositionComponent;
+import com.theosirian.libgdx.bomberman.components.StaticColliderComponent;
+import com.theosirian.libgdx.bomberman.util.Mappers;
+import com.theosirian.libgdx.bomberman.util.Pools;
 
 public class MovementSystem extends IteratingSystem {
 

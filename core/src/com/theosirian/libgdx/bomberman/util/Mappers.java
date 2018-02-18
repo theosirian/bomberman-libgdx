@@ -1,7 +1,7 @@
-package com.theosirian.secomp.util;
+package com.theosirian.libgdx.bomberman.util;
 
 import com.badlogic.ashley.core.ComponentMapper;
-import com.theosirian.secomp.components.*;
+import com.theosirian.libgdx.bomberman.components.*;
 
 public class Mappers {
 	public static final ComponentMapper<PositionComponent>

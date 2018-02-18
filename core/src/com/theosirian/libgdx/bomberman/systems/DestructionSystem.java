@@ -1,10 +1,10 @@
-package com.theosirian.secomp.systems;
+package com.theosirian.libgdx.bomberman.systems;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
-import com.theosirian.secomp.components.DestroyComponent;
-import com.theosirian.secomp.util.Mappers;
+import com.theosirian.libgdx.bomberman.components.DestroyComponent;
+import com.theosirian.libgdx.bomberman.util.Mappers;
 
 public class DestructionSystem extends IteratingSystem {
 	public DestructionSystem() {

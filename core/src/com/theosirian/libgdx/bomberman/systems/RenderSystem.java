@@ -1,4 +1,4 @@
-package com.theosirian.secomp.systems;
+package com.theosirian.libgdx.bomberman.systems;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
@@ -6,9 +6,9 @@ import com.badlogic.ashley.systems.IteratingSystem;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.theosirian.secomp.components.PositionComponent;
-import com.theosirian.secomp.components.RenderComponent;
-import com.theosirian.secomp.util.Mappers;
+import com.theosirian.libgdx.bomberman.components.PositionComponent;
+import com.theosirian.libgdx.bomberman.components.RenderComponent;
+import com.theosirian.libgdx.bomberman.util.Mappers;
 
 public class RenderSystem extends IteratingSystem {
 	private final SpriteBatch batch;
